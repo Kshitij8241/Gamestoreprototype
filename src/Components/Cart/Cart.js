@@ -20,7 +20,7 @@ const Cart = props => {
         openGamePage
     } = props;
 
-    const [total, setTotal] = useState(0);
+    const [ setTotal] = useState(0);
     let newTotal = 0;
     cart.forEach((item, i) => {
         let priceAsNumber = parseFloat(item.price);

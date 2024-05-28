@@ -1,7 +1,7 @@
 import styles from './Browse.module.css';
 import React, { useEffect, useState } from 'react';
 import NavBar from '../../Components/NavBar/NavBar';
-import { useNavigate } from 'react-router-dom';
+
 
 import AnimatedPage from '../AnimatedPage/AnimatedPage';
 import { ReactComponent as Grids } from "../../Resources/image/grid.svg";
@@ -48,11 +48,11 @@ const Browse = props => {
         } = props;
     
 
-    const [landingPage, setLandingPage] = useState(false);
+    const [landingPage] = useState(false);
     const [grid, setGrid] = useState(true);
 
     const handleLayoutSwitch = (e) => {
-      if (e.target.id == "grid") {
+      if (e.target.id === "grid") {
         setGrid(true);
       } else {
         setGrid(false);
@@ -60,10 +60,10 @@ const Browse = props => {
     }
 
     useEffect(() => {
-      if (currentFilter == "none") {
+      if (currentFilter === "none") {
         setShownGames(allGames);
 
-      } else if (currentFilter != "Ratings" && currentFilter != "Reviews" && currentFilter != "Wishlist") {
+      } else if (currentFilter !== "Ratings" && currentFilter !== "Reviews" && currentFilter !== "Wishlist") {
           let filteredShownGames = allGames.filter(game => game.genre === currentFilter);
           setShownGames(filteredShownGames);
 
@@ -82,10 +82,10 @@ const Browse = props => {
           setShownGames(filteredShownGames);
       }
 
-      if (currentFilter != "Reviews") {
+      if (currentFilter !== "Reviews") {
           setReviewDisplay(false);
       }
-    }, [currentFilter])
+    }, [currentFilter,allGames,setReviewDisplay, setShownGames])
 
     useEffect(() => {
       if (cartDisplayed) {
@@ -98,7 +98,7 @@ const Browse = props => {
     useEffect(() => {
       let unhoveredState = hoverState.map((element, i) => {
         if (i >= 25) {
-          return
+          return null
         } else {
              element.hovered = false;
              return element;
@@ -106,7 +106,7 @@ const Browse = props => {
       });
 
       setHoverState(unhoveredState);
-    }, []);
+    }, [hoverState,setHoverState]);
 
     return (
       <section className={styles.Browse} style={{ maxHeight: cartDisplayed ? "100vh" : "1000vh", minHeight: "100vh" }}>

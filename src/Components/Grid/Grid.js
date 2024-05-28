@@ -52,6 +52,7 @@ const Grid = props => {
                     hoverState={hoverState}
                   />
                 }
+                else{return null}
             }) : shownGames.map((game, i) => {
                 return <Card 
                          game={game} 
@@ -74,6 +75,7 @@ const Grid = props => {
                              hoverState={hoverState}
                            />
                 }
+                else{return null}
             })}
           </div>
     </>

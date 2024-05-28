@@ -38,7 +38,7 @@ const Card = props => {
             animate="animate"
             exit="exit"
           >
-            <img src={game.cover} className={styles.img} alt="Game Cover Image" />
+            <img src={game.cover} className={styles.img} alt='#' />
     
             <div className={styles.price}>
                     {game.inCart ? <AddedToCart /> : <AddToCart 

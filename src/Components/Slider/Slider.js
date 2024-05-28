@@ -29,7 +29,8 @@ const Slider = props => {
   useEffect(() => {
     const selectedGameIndex = allGames.findIndex(game => "/react-ecommerce-store/games/" + game.surname === location.pathname);
     setSelectedGame(allGames[selectedGameIndex]);
-  }, []);
+    
+  }, [allGames, location.pathname, setSelectedGame]);
 
   const properties = {
     duration: 6000,

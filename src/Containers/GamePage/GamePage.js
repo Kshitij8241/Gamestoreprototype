@@ -159,7 +159,7 @@ const GamePage = props => {
                       >
                         <AnimatedText>
                              <div className={textExtended ? styles.open : styles.closed}>
-                                 <a href={selectedGame ? selectedGame.link : templateGame.link} target="_blank">{selectedGame ? selectedGame.name : "No"} Website</a>
+                                 <a href={selectedGame ? selectedGame.link : templateGame.link} target="_blank" rel="noreferrer">{selectedGame ? selectedGame.name : "No"} Website</a>
                                  <h4>Released: {selectedGame ? selectedGame.release : templateGame.release}</h4>
                                  <h4>Platforms: {selectedGame ? selectedGame.platforms : templateGame.platforms}</h4>
                                  <h4>Main Genre: {selectedGame ? selectedGame.genre : templateGame.genre}</h4>
